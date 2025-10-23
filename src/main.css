@@ -1,0 +1,283 @@
+:root {
+    --accent: cyan;
+    --bg-dark: #040720;
+    --text-font: fangsong;
+    --shadow: 0 0 15px var(--accent);
+    --transition-all:all 0.6s ease-in-out;
+    --transition-transform:transform 0.6s ease-in-out;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#wrapper{
+    display: flex;
+    font-family: sans-serif;
+    font-size: 16px;
+    position: relative;
+    height: 100vh;
+}
+h1{
+    color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    position: absolute;
+    background-image: url('/public/images/Seasons\ of\ Time.jpg');
+    background-position: top;
+    background-size: cover;
+    -webkit-background-clip: text;
+    background-clip: text;
+    top: 1em;
+    left: 33%;
+    z-index: 3;
+    font-size: 3.4vw;
+    font-weight: 800;
+}
+.calendar-box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.main{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    z-index: 4;
+    transform: translateX(23vw);
+    transition: var(--transition-all);
+}
+.data-text{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: var(--bg-dark);
+    border: none;
+    user-select: none;
+    box-shadow: 0px 0px 0px 4px cyan;
+    animation: shift 7s ease-in-out infinite alternate;
+    transform: scale(1.6);
+    cursor: pointer;
+    transition: var(--transition-transform);
+}
+@keyframes shift {
+    0%, 40%, 44%, 58%, 61%, 65%, 69%, 73%, 100% {
+       transform: skewX(0deg);
+    }
+ 
+    41% {
+       transform: skewX(5deg);
+    }
+ 
+    42% {
+       transform: skewX(-5deg);
+    }
+ 
+    59% {
+       transform: skewX(10deg) skewY(5deg);
+    }
+ 
+    60% {
+       transform: skewX(-10deg) skewY(-5deg);
+    }
+ 
+    63% {
+       transform: skewX(5deg) skewY(-2.5deg);
+    }
+ 
+    70% {
+       transform: skewX(-25deg) skewY(-10deg);
+    }
+ 
+    71% {
+       transform: skewX(5deg) skewY(-5deg);
+    }
+ }
+.text{
+    font-size: 8rem;
+    font-weight: 600;
+    color: var(--accent);
+    font-family: var(--text-font);
+}
+.text-month,.text-week{
+    color: #fff;
+    position: absolute;
+    right: 1rem;
+    font-family: var(--text-font);
+    font-weight: bold;
+    letter-spacing: 0.3em;
+}
+
+.text-week{
+    left: 2rem;
+}
+/* ////////////////////#////////////////////// */
+.content{
+    position: relative;
+    width: 50%;
+    background-color: rgb(255 255 255,0.5);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    color: #fff;
+    transform: translateX(-300px);
+    opacity: 0;
+    transition:var(--transition-all);
+}
+
+.calendar{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.calendar-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 1rem 0;
+}
+.calendar-header select{
+    height: 40px;
+    width: 107px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    font-family: var(--text-font);
+    outline: none;
+    scroll-behavior: unset;
+}
+.calendar-header select option{
+    font-weight: 600;
+    background-color: #1e1e2f;
+    
+}
+select::-webkit-scrollbar {
+    width: 0;          
+    background: transparent; 
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 15px;
+    border-radius: 5px;
+}
+.day-box{
+    font-size: 1.3rem;
+    height: 8vh;
+    font-weight: 600;
+    font-family: var(--text-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.day-box:hover{
+    color: var(--accent);
+}
+.day-box.today{
+    background-color: var(--bg-dark);
+    color: var(--accent);
+    border-radius: 5px;
+}
+.day-box,
+.day-name {
+  user-select: none; 
+  pointer-events: all; 
+}
+.day-name{
+    font-weight: 600;
+    font-family: var(--text-font);
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+/* style Class */
+.content.content-show{
+    transform: translateX(0px);
+    opacity: 1;
+}
+.main.main-show{
+    transform: translateX(0);
+}
+.data-text.data-text-clicked{
+    transform: scale(1);
+}
+
+@media screen and (max-width:1000px) {
+    #wrapper{
+        height: 140vh;
+    }
+    .calendar-box{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .main{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-51%, -56%) scale(0.8);
+        
+    }
+    .main.main-show{
+        transform:  translate(-50%, -78%) scale(0.6);
+        z-index: 2;
+    }
+    .content{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -91%);
+        width: 100%;
+        padding-bottom: 2rem;
+    }
+    .content.content-show{
+        transform: translate(-50%, clamp(-40%, -10%, -10%));
+        z-index: 3;
+    }
+}
+@media screen and (max-width:600px) {
+
+    .main{
+        width: 100%;
+    }
+    .calendar{
+        width: 90%;
+    }
+    .content.content-show {
+        transform: translate(-50%, clamp(-40%, -10%, -10%));
+      }
+      
+    .text-month{
+        right: 0.5rem;
+    } 
+    .text-week{
+        left: 1rem;
+    }
+}
+
+
+
+  
