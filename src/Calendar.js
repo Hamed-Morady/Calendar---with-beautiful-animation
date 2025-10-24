@@ -40,6 +40,15 @@ export default function Calendar() {
     img.src = season
     img.onload=()=>setLoadImage(season)
   }, [season]);
+  useEffect(() => {
+    const setVh = () => {
+      document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+    };
+    setVh();
+    window.addEventListener('resize', setVh);
+    return () => window.removeEventListener('resize', setVh);
+  }, []);
+  
   const days = [];
   for (let i = 1; i <= daysInMonth; i++) {
     days.push(i);
