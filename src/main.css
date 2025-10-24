@@ -284,7 +284,7 @@ select::-webkit-scrollbar {
         left: 50%;
         transform: translate(-50%, -91%);
         width: 100%;
-        /* padding-bottom: 2rem; */
+
     }
 
     .content.content-show {
