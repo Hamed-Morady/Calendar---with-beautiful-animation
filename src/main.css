@@ -336,13 +336,20 @@ select::-webkit-scrollbar {
         z-index: 4;
     }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 375px) {
    .calendar {
         width: 100%;
         padding: 0 4%;
     }
     .calendar-grid {
         gap:8px
+    }  
+}
+@media screen and (max-width: 300px){
+    .main.main-show {
+        transform: translate(-100%, -80%) scale(0.4);
     }
-        
+    .content.content-show {
+        transform: translate(-50%, clamp(-40%, -10%, -30%));
+    }
 }
