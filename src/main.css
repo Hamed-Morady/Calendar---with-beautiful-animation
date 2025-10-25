@@ -347,7 +347,7 @@ select::-webkit-scrollbar {
 }
 @media screen and (max-width: 300px){
     .main.main-show {
-        transform: translate(-100%, -80%) scale(0.4);
+        transform: translate(-50%, -82%) scale(0.4);
     }
     .content.content-show {
         transform: translate(-50%, clamp(-40%, -10%, -30%));
