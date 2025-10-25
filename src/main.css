@@ -339,5 +339,6 @@ select::-webkit-scrollbar {
 @media screen and (max-width: 320px) {
    .calendar {
         width: 100%;
+        padding: 0 4%;
     }
 }
