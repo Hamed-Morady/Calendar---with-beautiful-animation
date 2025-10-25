@@ -292,6 +292,12 @@ select::-webkit-scrollbar {
         z-index: 3;
     }
 }
+@media screen and (width: 720px) {
+  .calendar {
+        width: 90%;
+    }
+}
+
 
 @media screen and (max-width:600px) {
 
