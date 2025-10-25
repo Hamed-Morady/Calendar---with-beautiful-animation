@@ -341,4 +341,8 @@ select::-webkit-scrollbar {
         width: 100%;
         padding: 0 4%;
     }
+    .calendar-grid {
+        gap:8px
+    }
+        
 }
