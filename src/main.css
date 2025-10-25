@@ -292,13 +292,6 @@ select::-webkit-scrollbar {
         z-index: 3;
     }
 }
-@media screen and (max-width: 320px) {
-   .calendar {
-        width: 80%;
-    }
-}
-
-
 
 @media screen and (max-width:600px) {
 
@@ -341,5 +334,10 @@ select::-webkit-scrollbar {
     .main.main-show {
         transform: translate(-100%, -84%) scale(0.3);
         z-index: 4;
+    }
+}
+@media screen and (max-width: 320px) {
+   .calendar {
+        width: 80%;
     }
 }
