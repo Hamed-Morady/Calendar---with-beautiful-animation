@@ -345,6 +345,22 @@ select::-webkit-scrollbar {
         gap:8px
     }  
 }
+@media screen and (orientation: landscape) and (max-height: 375px){
+    h1{
+        top: -0.5em;
+        z-index: 4
+    }
+    .content.content-show {
+        transform: translate(-50%, clamp(-52%, -10%, -50%));
+    }
+    .main {
+        transform: translate(-51%, -45%) scale(0.9);
+    }
+    .main.main-show {
+        transform: translate(-78%, -87%) scale(0.2);
+        z-index: 4;
+    }
+}
 @media screen and (max-width: 300px){
     .main.main-show {
         transform: translate(-50%, -82%) scale(0.4);
